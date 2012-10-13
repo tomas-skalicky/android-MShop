@@ -9,7 +9,7 @@ public enum Currency {
 		}
 
 	},
-	EUR("€", true) {
+	EUR("â‚¬", true) {
 		@Override
 		public <T> T accept(CurrencyVisitor<T> visitor) {
 			return visitor.visitEur();
