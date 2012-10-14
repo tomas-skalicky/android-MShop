@@ -1,6 +1,0 @@
-Manifest-Version: 1.0
-Built-By: <a href="mailto:skalicky.tomas@gmail.com">Tomas Skalicky</a>
-  &lt;skalicky.tomas@gmail.com&gt;
-Build-Jdk: 1.7.0_07
-Created-By: Maven Integration for Eclipse
-

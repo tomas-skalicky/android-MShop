@@ -8,6 +8,8 @@
 						http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 	<context:annotation-config />
-	<context:component-scan base-package="cz.skalicky.android.MShopService.context" />
+	<context:component-scan
+		base-package="cz.skalicky.android.MShopService.context
+					  cz.skalicky.android.MShopService.beans" />
 
 </beans>

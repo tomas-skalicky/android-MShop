@@ -7,8 +7,10 @@ import org.springframework.stereotype.Component;
 import cz.skalicky.android.MShopService.publicapi.Category;
 import cz.skalicky.android.MShopService.publicapi.Product;
 
-@Component("category")
+@Component(CategoryImpl.BEAN_NAME)
 public class CategoryImpl implements Category {
+
+	public static final String BEAN_NAME = "category";
 
 	@Override
 	public int getId() {
