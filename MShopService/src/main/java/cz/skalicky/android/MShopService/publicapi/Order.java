@@ -1,9 +1,10 @@
 package cz.skalicky.android.MShopService.publicapi;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public interface Order {
+public interface Order extends Serializable {
 
 	public int getId();
 

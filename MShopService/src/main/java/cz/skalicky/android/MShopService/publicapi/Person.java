@@ -1,6 +1,8 @@
 package cz.skalicky.android.MShopService.publicapi;
 
-public interface Person {
+import java.io.Serializable;
+
+public interface Person extends Serializable {
 
 	public int getId();
 

@@ -1,6 +1,8 @@
 package cz.skalicky.android.MShopService.publicapi;
 
-public interface PhoneNumber {
+import java.io.Serializable;
+
+public interface PhoneNumber extends Serializable {
 
 	public String getCountry();
 

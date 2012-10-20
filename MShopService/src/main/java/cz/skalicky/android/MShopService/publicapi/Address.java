@@ -1,6 +1,8 @@
 package cz.skalicky.android.MShopService.publicapi;
 
-public interface Address {
+import java.io.Serializable;
+
+public interface Address extends Serializable {
 
 	public String getStreet();
 

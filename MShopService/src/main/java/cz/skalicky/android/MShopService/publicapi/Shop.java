@@ -1,12 +1,14 @@
 package cz.skalicky.android.MShopService.publicapi;
 
+import java.io.Serializable;
 import java.net.URL;
+import java.util.List;
 
-public interface Shop {
+public interface Shop extends Serializable {
 
 	public int getId();
 
-	public int getName();
+	public String getName();
 
 	public String getDescription();
 
@@ -17,4 +19,6 @@ public interface Shop {
 	public String getEmail();
 
 	public URL getHomepage();
+
+	public List<Product> getProducts();
 }

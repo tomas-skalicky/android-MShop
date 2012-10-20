@@ -1,8 +1,9 @@
 package cz.skalicky.android.MShopService.publicapi;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public interface Rating {
+public interface Rating extends Serializable {
 
 	/**
 	 * Gets the rated {@link Product}.
@@ -11,7 +12,10 @@ public interface Rating {
 
 	public RatingAuthor getAuthor();
 
-	public int getRatingNumber();
+	/**
+	 * Gets the rating value itself.
+	 */
+	public int getRatingValue();
 
 	/**
 	 * Gets the time when this {@link Rating} has been created.

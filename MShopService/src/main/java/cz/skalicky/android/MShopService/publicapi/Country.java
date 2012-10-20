@@ -1,6 +1,8 @@
 package cz.skalicky.android.MShopService.publicapi;
 
-public interface Country {
+import java.io.Serializable;
+
+public interface Country extends Serializable {
 
 	public String getName();
 

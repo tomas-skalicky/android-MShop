@@ -7,9 +7,12 @@
 						http://www.springframework.org/schema/context
 						http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
+	<!-- Database Configuration -->
+	<import resource="dataSource.xml" />
+	<import resource="hibernate.xml" />
+
+
 	<context:annotation-config />
-	<context:component-scan
-		base-package="cz.skalicky.android.MShopService.context
-					  cz.skalicky.android.MShopService.beans" />
+	<context:component-scan base-package="cz.skalicky.android.MShopService.context" />
 
 </beans>

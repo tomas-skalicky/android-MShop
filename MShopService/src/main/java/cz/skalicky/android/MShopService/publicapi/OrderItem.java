@@ -1,6 +1,8 @@
 package cz.skalicky.android.MShopService.publicapi;
 
-public interface OrderItem {
+import java.io.Serializable;
+
+public interface OrderItem extends Serializable {
 
 	public Product getProduct();
 

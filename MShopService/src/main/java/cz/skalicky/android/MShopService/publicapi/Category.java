@@ -1,8 +1,9 @@
 package cz.skalicky.android.MShopService.publicapi;
 
+import java.io.Serializable;
 import java.util.Set;
 
-public interface Category {
+public interface Category extends Serializable {
 
 	public int getId();
 
