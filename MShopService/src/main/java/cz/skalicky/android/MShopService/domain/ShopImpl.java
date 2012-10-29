@@ -13,7 +13,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import cz.skalicky.android.MShopService.publicapi.Address;
 import cz.skalicky.android.MShopService.publicapi.PhoneNumber;
@@ -21,7 +23,7 @@ import cz.skalicky.android.MShopService.publicapi.Product;
 import cz.skalicky.android.MShopService.publicapi.Shop;
 
 @Entity
-@Table(name = "shops")
+@Table(name = "SHOPS")
 public class ShopImpl implements Shop {
 
 	private static final long serialVersionUID = -9163656938293549663L;
@@ -66,7 +68,7 @@ public class ShopImpl implements Shop {
 		this.description = description;
 	}
 
-	@Embedded
+	@OneToOne(mappedBy = "occupier", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Column(nullable = false)
 	@Override
 	public Address getHeadquarterAddress() {
@@ -108,9 +110,15 @@ public class ShopImpl implements Shop {
 		this.homepage = homepage;
 	}
 
-	@OneToMany(mappedBy = "products", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "shop", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	@Override
 	public List<Product> getProducts() {
 		return this.products;
+	}
+
+	@Transient
+	@Override
+	public Address getAddress() {
+		return this.getHeadquarterAddress();
 	}
 }

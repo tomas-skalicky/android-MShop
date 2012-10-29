@@ -8,8 +8,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -17,7 +15,7 @@ import cz.skalicky.android.MShopService.publicapi.Category;
 import cz.skalicky.android.MShopService.publicapi.Product;
 
 @Entity
-@Table(name = "categories")
+@Table(name = "CATEGORIES")
 public class CategoryImpl implements Category {
 
 	private static final long serialVersionUID = 9044713624533599033L;
@@ -37,8 +35,8 @@ public class CategoryImpl implements Category {
 		this.id = id;
 	}
 
-	@Basic
-	@Column(unique = true, nullable = false)
+	@Basic(optional = false)
+	@Column(unique = true)
 	@Override
 	public String getName() {
 		return this.name;
@@ -48,8 +46,7 @@ public class CategoryImpl implements Category {
 		this.name = name;
 	}
 
-	@ManyToMany(targetEntity = Product.class)
-	@JoinTable(name = "category_product", joinColumns = @JoinColumn(name = "categoryId"), inverseJoinColumns = @JoinColumn(name = "productId"))
+	@ManyToMany(mappedBy = "categories", targetEntity = Product.class)
 	@Override
 	public Set<Product> getProducts() {
 		return this.products;

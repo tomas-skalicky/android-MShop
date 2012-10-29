@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public interface Address extends Serializable {
 
+	public int getId();
+
 	public String getStreet();
 
 	public int getStreetNumber();
@@ -11,4 +13,6 @@ public interface Address extends Serializable {
 	public Country getCountry();
 
 	public int getPostCode();
+
+	public Occupier getOccupier();
 }

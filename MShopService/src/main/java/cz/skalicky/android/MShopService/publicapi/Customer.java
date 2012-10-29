@@ -2,7 +2,7 @@ package cz.skalicky.android.MShopService.publicapi;
 
 import java.util.List;
 
-public interface Customer extends Person {
+public interface Customer extends Person, Occupier {
 
 	public List<Address> getDeliveryAddresses();
 

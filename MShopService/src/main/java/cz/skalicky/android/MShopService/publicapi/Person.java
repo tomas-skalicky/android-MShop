@@ -6,9 +6,9 @@ public interface Person extends Serializable {
 
 	public int getId();
 
-	public int getFirstName();
+	public String getFirstName();
 
-	public int getLastName();
+	public String getLastName();
 
 	public PhoneNumber getPhoneNumber();
 

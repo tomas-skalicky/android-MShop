@@ -4,7 +4,7 @@ import java.io.Serializable;
 import java.net.URL;
 import java.util.List;
 
-public interface Shop extends Serializable {
+public interface Shop extends Serializable, Occupier {
 
 	public int getId();
 

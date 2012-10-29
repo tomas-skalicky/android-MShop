@@ -12,13 +12,14 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import cz.skalicky.android.MShopService.publicapi.Product;
 import cz.skalicky.android.MShopService.publicapi.Rating;
 import cz.skalicky.android.MShopService.publicapi.RatingAuthor;
 
 @Entity
-@Table(name = "ratings")
+@Table(name = "RATINGS")
 public class RatingImpl implements Rating {
 
 	private static final long serialVersionUID = 8497522842039455766L;
@@ -34,6 +35,7 @@ public class RatingImpl implements Rating {
 		return this.primaryKey;
 	}
 
+	@Basic(optional = false)
 	@Override
 	public int getRatingValue() {
 		return this.ratingValue;
@@ -53,11 +55,13 @@ public class RatingImpl implements Rating {
 		this.date = date;
 	}
 
+	@Transient
 	@Override
 	public Product getProduct() {
 		return this.primaryKey.getProduct();
 	}
 
+	@Transient
 	@Override
 	public RatingAuthor getAuthor() {
 		return this.primaryKey.getAuthor();
@@ -72,7 +76,7 @@ public class RatingImpl implements Rating {
 		private RatingAuthor author = null;
 
 		@ManyToOne
-		@JoinColumn(name = "rating_product_fk", insertable = false, updatable = false)
+		@JoinColumn(name = "RATING_PRODUCT_FK", insertable = false, updatable = false)
 		public Product getProduct() {
 			return this.product;
 		}
@@ -82,7 +86,7 @@ public class RatingImpl implements Rating {
 		}
 
 		@ManyToOne
-		@JoinColumn(name = "rating_ratingAuthor_fk", insertable = false, updatable = false)
+		@JoinColumn(name = "RATING_RATINGAUTHOR_FK", insertable = false, updatable = false)
 		public RatingAuthor getAuthor() {
 			return this.author;
 		}

@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public interface PhoneNumber extends Serializable {
 
-	public String getCountry();
+	public Country getCountry();
 
 	public String getPrefix();
 

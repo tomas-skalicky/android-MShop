@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 public interface Country extends Serializable {
 
+	public int getId();
+
 	public String getName();
 
 	/**

@@ -1,5 +1,6 @@
 package cz.skalicky.android.MShopService.domain;
 
+import java.beans.Transient;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -15,11 +16,11 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.persistence.Transient;
 
 import cz.skalicky.android.MShopService.publicapi.Category;
 import cz.skalicky.android.MShopService.publicapi.Price;
@@ -28,7 +29,7 @@ import cz.skalicky.android.MShopService.publicapi.Rating;
 import cz.skalicky.android.MShopService.publicapi.Shop;
 
 @Entity
-@Table(name = "products")
+@Table(name = "PRODUCTS")
 public class ProductImpl implements Product {
 
 	private static final long serialVersionUID = 8732642156264793179L;
@@ -75,7 +76,7 @@ public class ProductImpl implements Product {
 	}
 
 	@ManyToOne
-	@JoinColumn(name = "product_shop_fk", insertable = false, updatable = false)
+	@JoinColumn(name = "PRODUCT_SHOP_FK", insertable = false, updatable = false)
 	@Override
 	public Shop getShop() {
 		return this.shop;
@@ -107,7 +108,7 @@ public class ProductImpl implements Product {
 		this.priceIncludingVat = priceIncludingVat;
 	}
 
-	@OneToMany(mappedBy = "ratings", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "product", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
 	@Override
 	public List<Rating> getRatings() {
 		return this.ratings;
@@ -117,7 +118,8 @@ public class ProductImpl implements Product {
 		this.ratings = ratings;
 	}
 
-	@ManyToMany(mappedBy = "products", targetEntity = Category.class)
+	@ManyToMany(targetEntity = Category.class)
+	@JoinTable(name = "PRODUCT_CATEGORY", joinColumns = @JoinColumn(name = "productId"), inverseJoinColumns = @JoinColumn(name = "categoryId"))
 	@Override
 	public Set<Category> getCategories() {
 		return this.categories;

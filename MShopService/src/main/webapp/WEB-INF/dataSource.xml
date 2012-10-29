@@ -13,6 +13,7 @@
 		p:location="classpath:jdbc.properties" />
 	<!-- Another possibility: <context:property-placeholder location="jdbc.properties" /> -->
 
+
 	<!-- See the documentation of c3p0: http://www.mchange.com/projects/c3p0/#basic_pool_configuration) -->
 	<!-- initialPoolSize ........... Number of connections a pool will try to acquire upon startup. Should be between
 									minPoolSize and maxPoolSize. -->
@@ -59,9 +60,5 @@
 
 		p:maxStatements="200">
 	</bean>
-
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-		p:dataSource-ref="dataSource" />
 
 </beans>
